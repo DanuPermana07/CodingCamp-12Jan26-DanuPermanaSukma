@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
-    function replaceName() {
+    function askUserName() {
         const welcomeText = document.getElementById("welcome-text");
         if (!welcomeText) return;
 
-        let name = localStorage.getItem("userName");
+        let name = sessionStorage.getItem("userName");
 
+        // Jika belum ada di session (pertama kali masuk)
         if (!name) {
             let inputName = prompt("Masukkan nama Anda:");
 
@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 name = inputName.trim();
             }
 
-            localStorage.setItem("userName", name);
+            sessionStorage.setItem("userName", name);
         }
 
         welcomeText.innerText =
             `Hi ${name}, Welcome To Danu Company Profile`;
     }
 
-    replaceName();
+    askUserName();
 
     /* ============================
        MESSAGE US FORM + POPUP
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.getElementById("closePopup");
     const nameInput = document.getElementById("input-name");
 
-    // Auto isi nama di form
-    const savedName = localStorage.getItem("userName");
-    if (savedName && nameInput) {
-        nameInput.value = savedName;
+    // Auto isi nama dari session
+    const sessionName = sessionStorage.getItem("userName");
+    if (sessionName && nameInput) {
+        nameInput.value = sessionName;
     }
 
     if (!form) return;
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const name = nameInput.value.trim();
+        const name = nameInput.value.trim() || "Guest";
         const birthdate = document.getElementById("input-birthdate").value;
         const message = document.getElementById("input-message").value;
 
@@ -54,10 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         const gender = genderInput ? genderInput.value : "-";
 
-        // Update nama terbaru
-        localStorage.setItem("userName", name || "Guest");
+        // Update session name
+        sessionStorage.setItem("userName", name);
 
-        document.getElementById("popup-name").textContent = name || "Guest";
+        document.getElementById("popup-name").textContent = name;
         document.getElementById("popup-birthdate").textContent = birthdate;
         document.getElementById("popup-gender").textContent = gender;
         document.getElementById("popup-message").textContent = message;
