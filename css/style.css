@@ -152,6 +152,10 @@ body {
     margin-top: 20px;
 }
 
+.message-us h2 {
+    text-align: center;
+}
+
 #message-us {
     scroll-margin-top: 120px;
 }
