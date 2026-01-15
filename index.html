@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project Coding Camp</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigator Bar -->
+    <nav class="nav">
+        <div class="logo">
+
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="ourprofile.html">Our Profile</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="#message">Message Us</a>
+        </div>
+    </nav>
+
+
+    <!-- Home Page -->
+    <header class="home" id="home">
+        <h1 id="welcome-text">Hi .... , Welcome To Danu Company Profile</h1>
+        <p>Kami adalah perusahaan teknologi yang dikelola dengan visi kepemimpinan strategis, fokus pada pengembangan solusi digital berkualitas tinggi. Dengan standar profesional dan pendekatan berbasis teknologi terkini, kami berkomitmen menjadi mitra terpercaya bagi berbagai sektor industri.</p>
+
+
+        <div class="banner-placeholder">
+            <img src="img/banner.png" alt="Banner">
+        </div>
+    </header>
+
+    <!-- HEADQUARTER -->
+    <section class="headquarters">
+        <h2>Our Headquarter</h2>
+        <div class="hq-container">
+            <div class="hq-item">
+                <div class="circle-jkt"></div>
+                <p>Jakarta</p>
+            </div>
+            <div class="hq-item">
+                <div class="circle-bdg"></div>
+                <p>Bandung</p>
+            </div>
+            <div class="hq-item">
+                <div class="circle-sby"></div>
+                <p>Surabaya</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MESSAGE US -->
+    <section class="message-us" id="message">
+        <h2>Message Us</h2>
+        <div class="message-container">
+
+            <form id="messageForm" class="form-box">
+                <label>Nama</label>
+                <input type="text" id="input-name" required>
+
+                <label>Tanggal Lahir</label>
+                <input type="date" id="input-birthdate" required>
+
+                <label>Jenis Kelamin</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="gender" value="laki-laki" checked>
+                            <span class="custom-radio"></span>
+                            <span class="radio-text">Laki-laki</span>
+                        </label>
+
+                        <label class="radio-item">
+                            <input type="radio" name="gender" value="perempuan" checked>
+                            <span class="custom-radio"></span>
+                            <span class="radio-text">Perempuan</span>
+                        </label>
+                    </div>
+
+
+                <label>Pesan</label>
+                <textarea id="input-message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- POP UP -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-box">
+            <h3>Pesan Terkirim</h3>
+
+            <p><strong>Nama:</strong> <span id="popup-name"></span></p>
+            <p><strong>Tanggal Lahir:</strong> <span id="popup-birthdate"></span></p>
+            <p><strong>Jenis Kelamin:</strong> <span id="popup-gender"></span></p>
+            <p><strong>Pesan:</strong></p>
+            <p id="popup-message"></p>
+
+            <button class="btn-pop" id="closePopup">Tutup</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+     <footer>
+        © 2026 Danu Permana Sukma.
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Profile | Danu Company</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="nav">
+        <div class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="ourprofile.html" class="active">Our Profile</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html#message">Message Us</a>
+        </div>
+    </nav>
+
+    <!-- PROFILE HEADER -->
+    <section class="profile-header">
+        <h1>Our Profile</h1>
+        <p>Mengenal lebih dekat Danu Company sebagai perusahaan teknologi</p>
+    </section>
+
+    <!-- ABOUT COMPANY -->
+    <section class="profile-section">
+        <h2>Tentang Perusahaan</h2>
+        <p>
+            Danu Company adalah perusahaan yang bergerak di bidang teknologi informasi dan solusi digital.
+            Dipimpin dengan visi kepemimpinan strategis, kami fokus pada pengembangan produk dan layanan
+            berbasis teknologi modern untuk membantu bisnis berkembang di era digital.
+        </p>
+    </section>
+
+    <!-- VISION & MISSION -->
+    <section class="profile-section bg-light">
+        <div class="vm-container">
+            <div class="vm-box">
+                <h3>Visi</h3>
+                <p>
+                    Menjadi perusahaan teknologi terpercaya yang menghadirkan inovasi digital
+                    berkualitas tinggi dan berkelanjutan.
+                </p>
+            </div>
+            <div class="vm-box">
+                <h3>Misi</h3>
+                <ul>
+                    <li>Mengembangkan solusi digital yang inovatif dan efektif</li>
+                    <li>Memberikan layanan profesional dan berorientasi pada kebutuhan klien</li>
+                    <li>Mendorong transformasi digital di berbagai sektor industri</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="profile-section">
+        <h2>Nilai Perusahaan</h2>
+        <div class="values-container">
+            <div class="value-card">
+                <h4>Inovasi</h4>
+                <p>Kami terus berinovasi mengikuti perkembangan teknologi.</p>
+            </div>
+            <div class="value-card">
+                <h4>Profesionalisme</h4>
+                <p>Menjunjung tinggi etika dan kualitas kerja.</p>
+            </div>
+            <div class="value-card">
+                <h4>Kepercayaan</h4>
+                <p>Membangun hubungan jangka panjang dengan klien.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Danu Permana Sukma.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("messageForm");
+
+            if (!form) return;
+
+            form.addEventListener("submit", function () {
+                const name = document.getElementById("input-name").value;
+                localStorage.setItem("userName", name);
+            });
+        });
+    </script>
+</body>
+</html>
