@@ -25,9 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     askUserName();
 
-    /* ============================
-       MESSAGE US FORM + POPUP
-    ============================ */
 
     const form = document.getElementById("messageForm");
     const popup = document.getElementById("popupOverlay");

@@ -8,6 +8,10 @@ html {
     scroll-behavior: smooth;
 }
 
+.hidden {
+    display: none;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -57,7 +61,7 @@ body {
     color: black;
 }
 
-/* ================= HERO ================= */
+/* ================= HEADER ================= */
 .home {
     padding: 60px 5%;
     background-color: #fff;
