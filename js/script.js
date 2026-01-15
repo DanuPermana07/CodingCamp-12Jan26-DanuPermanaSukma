@@ -1,35 +1,40 @@
-/* ============================
-   WELCOME TEXT + SAVE NAME
-============================ */
-function replaceName() {
-    const savedName = localStorage.getItem("userName");
-
-    let name = savedName
-        ? savedName
-        : prompt("Masukkan nama Anda:", "Harfi");
-
-    if (name) {
-        document.getElementById("welcome-text").innerText =
-            "Hi " + name + ", Welcome To Danu Company Profile";
-
-        // Simpan nama agar tidak isi ulang
-        localStorage.setItem("userName", name);
-    }
-}
-
-replaceName();
-
-/* ============================
-   MESSAGE US FORM + POPUP
-============================ */
 document.addEventListener("DOMContentLoaded", function () {
+
+
+    function replaceName() {
+        const welcomeText = document.getElementById("welcome-text");
+        if (!welcomeText) return;
+
+        let name = localStorage.getItem("userName");
+
+        if (!name) {
+            let inputName = prompt("Masukkan nama Anda:");
+
+            if (inputName === null || inputName.trim() === "") {
+                name = "Guest";
+            } else {
+                name = inputName.trim();
+            }
+
+            localStorage.setItem("userName", name);
+        }
+
+        welcomeText.innerText =
+            `Hi ${name}, Welcome To Danu Company Profile`;
+    }
+
+    replaceName();
+
+    /* ============================
+       MESSAGE US FORM + POPUP
+    ============================ */
 
     const form = document.getElementById("messageForm");
     const popup = document.getElementById("popupOverlay");
     const closeBtn = document.getElementById("closePopup");
     const nameInput = document.getElementById("input-name");
 
-    // Auto isi nama jika sudah ada
+    // Auto isi nama di form
     const savedName = localStorage.getItem("userName");
     if (savedName && nameInput) {
         nameInput.value = savedName;
@@ -40,32 +45,29 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Ambil data input
-        const name = document.getElementById("input-name").value;
+        const name = nameInput.value.trim();
         const birthdate = document.getElementById("input-birthdate").value;
         const message = document.getElementById("input-message").value;
-        const gender = document.querySelector(
+
+        const genderInput = document.querySelector(
             'input[name="gender"]:checked'
-        ).value;
+        );
+        const gender = genderInput ? genderInput.value : "-";
 
-        // Simpan nama terbaru
-        localStorage.setItem("userName", name);
+        // Update nama terbaru
+        localStorage.setItem("userName", name || "Guest");
 
-        // Isi popup
-        document.getElementById("popup-name").textContent = name;
+        document.getElementById("popup-name").textContent = name || "Guest";
         document.getElementById("popup-birthdate").textContent = birthdate;
         document.getElementById("popup-gender").textContent = gender;
         document.getElementById("popup-message").textContent = message;
 
-        // Tampilkan popup
         popup.style.display = "flex";
     });
 
-    // Tutup popup
     closeBtn.addEventListener("click", function () {
         popup.style.display = "none";
         form.reset();
-        // localStorage.removeItem("userName"); // aktifkan jika ingin reset total
     });
 
 });
